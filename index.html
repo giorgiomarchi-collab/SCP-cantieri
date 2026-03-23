@@ -135,7 +135,7 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
 
-/* ── SEC HDR (verbale) ── */
+/* ── SEC HDR ── */
 .sec-hdr-box{border:1px solid var(--b2);border-radius:6px;padding:8px 12px;margin-bottom:11px;position:relative;}
 .sec-hdr-box::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--st);border-radius:0 2px 2px 0;}
 .sec-hdr-lbl{font-size:8.5px;font-weight:600;letter-spacing:.18em;color:var(--st);text-transform:uppercase;}
@@ -200,13 +200,11 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
 .fig-nome{font-size:12.5px;font-weight:500;color:var(--wh);}
 .fig-mail{font-size:10px;color:var(--st);margin-top:2px;}
 
-/* ── STATI AVANZAM. ── */
+/* ── SAL ── */
 .sal-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
 .sal-chip{font-size:10.5px;padding:4px 10px;border-radius:3px;background:rgba(255,255,255,.06);border:1px solid var(--b2);color:var(--st2);}
 .sal-chip.att{background:rgba(74,158,232,.15);border-color:rgba(74,158,232,.4);color:var(--ac);}
 .sal-chip.ok{background:rgba(61,170,110,.15);border-color:rgba(61,170,110,.35);color:#5DCC8A;}
-
-/* ── VERBALE SAL BAR ── */
 .sal-bar-wrap{display:flex;align-items:center;gap:10px;margin:6px 0 10px;}
 .sal-track{flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
 .sal-fill{height:100%;border-radius:3px;background:var(--ac);}
@@ -218,7 +216,7 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
 .os-txt{font-size:12.5px;color:var(--st2);flex:1;line-height:1.4;}
 .os-scad{font-size:10px;color:var(--st);flex-shrink:0;padding-top:2px;}
 
-/* ── FIRMA AREA ── */
+/* ── FIRME ── */
 .firme-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px;}
 .firma-box{border-bottom:1px solid var(--b3);padding-bottom:30px;}
 .firma-nome{font-size:12px;font-weight:500;color:var(--st2);}
@@ -260,18 +258,8 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
   body{height:100dvh;}
   .sidebar{display:none;}
   .main{padding:14px;padding-bottom:80px;}
-  .bottomnav{
-    display:flex;position:fixed;bottom:0;left:0;right:0;
-    height:62px;background:var(--panel);
-    border-top:1px solid var(--b2);
-    z-index:100;
-  }
-  .bn-item{
-    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:4px;cursor:pointer;color:var(--st);transition:color .14s;
-    -webkit-tap-highlight-color:transparent;
-    border:none;background:none;font-family:var(--fn);
-  }
+  .bottomnav{display:flex;position:fixed;bottom:0;left:0;right:0;height:62px;background:var(--panel);border-top:1px solid var(--b2);z-index:100;}
+  .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;color:var(--st);transition:color .14s;-webkit-tap-highlight-color:transparent;border:none;background:none;font-family:var(--fn);}
   .bn-item.active{color:var(--ac);}
   .bn-item svg{width:20px;height:20px;}
   .bn-item span{font-size:9.5px;font-weight:500;letter-spacing:.02em;}
@@ -291,12 +279,13 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
   .pres-row{padding:10px;}
   .pav{width:34px;height:34px;}
   .card{padding:13px 14px;}
-  .field-input{font-size:16px;} /* prevents iOS zoom */
+  .field-input{font-size:16px;}
   .note-area{font-size:16px;}
   .gantt-ditta-col,.gantt-ditta{display:none;}
   .arch-table th:nth-child(3),.arch-table td:nth-child(3),
   .arch-table th:nth-child(4),.arch-table td:nth-child(4){display:none;}
 }
+</style>
 </head>
 <body>
 
@@ -328,21 +317,37 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
 
   <!-- SIDEBAR -->
   <div class="sidebar">
-    <div class="nav-item active" onclick="nav('dashboard',this)" style="padding:14px 18px;margin-bottom:2px;">
+    <div class="nav-item active" onclick="nav('dashboard',this)">
       <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
       Dashboard
     </div>
-    <div class="nav-item" onclick="nav('progetti',this)" style="padding:14px 18px;margin-bottom:2px;">
+    <div class="nav-item" onclick="nav('progetti',this)">
       <svg viewBox="0 0 16 16" fill="none"><path d="M2 3H14V13H2Z" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M5 3V13M2 6H14M2 9H14" stroke="currentColor" stroke-width="1"/></svg>
       Progetti
     </div>
-    <div class="nav-item" onclick="nav('verbale',this)" style="padding:14px 18px;margin-bottom:2px;">
+    <div class="nav-item" onclick="nav('verbale',this)">
       <svg viewBox="0 0 16 16" fill="none"><path d="M3 2H10L13 5V14H3V2Z" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M10 2V5H13" stroke="currentColor" stroke-width="1.3"/><path d="M5 8H11M5 11H9" stroke="currentColor" stroke-width="1"/></svg>
       Verbali DL
     </div>
-    <div class="nav-item" onclick="nav('sicurezza',this)" style="padding:14px 18px;">
+    <div class="nav-item" onclick="nav('sicurezza',this)">
       <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L12 4V8.5C12 11 8 13 8 13C8 13 4 11 4 8.5V4Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
       Verbali Sicurezza
+    </div>
+    <div class="nav-item" onclick="nav('gantt',this)">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="8" height="2" rx="1" fill="currentColor" opacity=".6"/><rect x="1" y="7" width="12" height="2" rx="1" fill="currentColor" opacity=".6"/><rect x="4" y="11" width="9" height="2" rx="1" fill="currentColor" opacity=".6"/></svg>
+      Gantt
+    </div>
+    <div class="nav-item" onclick="nav('nc',this)">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M8 5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11" r=".6" fill="currentColor"/></svg>
+      Non Conformità
+    </div>
+    <div class="nav-item" onclick="nav('archivio',this)">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 4H14V5H2ZM3 5H13V13H3Z" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 8H10" stroke="currentColor" stroke-width="1"/></svg>
+      Archivio
+    </div>
+    <div class="nav-item" onclick="nav('foto',this)">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 3L6 1H10L11 3" stroke="currentColor" stroke-width="1"/></svg>
+      Foto & Mappa
     </div>
   </div>
 
@@ -353,7 +358,7 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
     <div class="page active" id="page-dashboard">
       <div class="page-hdr">
         <div><div class="page-title">Dashboard</div><div class="page-sub">Lunedì 23 Marzo 2026 · 5 cantieri attivi</div></div>
-        <div style="display:flex"><button class="btn-ghost">Filtri</button><button class="btn-primary" onclick="nav('progetti',document.querySelector('.nav-item:nth-child(2)'))">+ Nuovo Cantiere</button></div>
+        <div style="display:flex"><button class="btn-ghost">Filtri</button><button class="btn-primary" onclick="nav('progetti',document.querySelectorAll('.nav-item')[1])">+ Nuovo Cantiere</button></div>
       </div>
       <div class="kpi-row">
         <div class="kpi bl"><div class="kpi-lbl">Cantieri Attivi</div><div class="kpi-val">5<span class="kpi-unit">/ 8</span></div><div class="kpi-trend">↑ 2 rispetto al mese</div></div>
@@ -408,7 +413,6 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
     <div class="page" id="page-progetti">
       <div class="page-hdr"><div><div class="page-title">Scheda Progetto</div><div class="page-sub">Riqualificazione Ex Capannone Industriale</div></div><div style="display:flex"><button class="btn-ghost">Esporta</button><button class="btn-primary">Salva</button></div></div>
       <div class="proj-hdr"><div class="proj-badge">Scheda Progetto · PRJ-2026-004</div><div class="proj-title">Riqualificazione Ex Capannone Industriale</div><div class="proj-sub">Via Tortona 42, Milano &nbsp;·&nbsp; Avvio: 10 Gen 2026 &nbsp;·&nbsp; ID: PRJ-2026-004</div></div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
         <div class="card" style="border-left:3px solid var(--ac);border-radius:0 7px 7px 0;">
           <div class="sec-title">Dati generali</div>
@@ -425,35 +429,27 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
           <div class="field"><span class="field-lbl">Email referente</span><input class="field-input" value="m.rossi@rossi-spa.it"></div>
         </div>
       </div>
-
       <div class="card" style="border-left:3px solid var(--gr);border-radius:0 7px 7px 0;margin-bottom:14px;">
         <div class="sec-title">Figure professionali SCP s.r.l.</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:9px;">
-          <div style="font-size:8.5px;font-weight:600;letter-spacing:.14em;color:var(--st);text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--b1);">Capo Progetto</div>
-          <div style="font-size:8.5px;font-weight:600;letter-spacing:.14em;color:var(--st);text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--b1);">Direttore Lavori</div>
-          <div style="font-size:8.5px;font-weight:600;letter-spacing:.14em;color:var(--st);text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--b1);">Coordinatore Sicurezza</div>
-        </div>
         <div class="fig-grid">
-          <div class="fig-card"><div class="pav b" style="margin-bottom:7px;">FP</div><div class="fig-nome">Ing. F. Pellegrini</div><div class="fig-mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="583e76283d34343d3f2a313631182b3b2876312c">[email&#160;protected]</a></div></div>
-          <div class="fig-card"><div class="pav b" style="margin-bottom:7px;">AM</div><div class="fig-nome">Arch. A. Marchetti</div><div class="fig-mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86e7a8ebe7f4e5eee3f2f2efc6f5e5f6a8eff2">[email&#160;protected]</a></div></div>
-          <div class="fig-card"><div class="pav g" style="margin-bottom:7px;">LR</div><div class="fig-nome">Ing. L. Rossetti</div><div class="fig-mail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="412d6f332e323224353528013222316f2835">[email&#160;protected]</a></div></div>
+          <div class="fig-card"><div class="fig-role">Capo Progetto</div><div class="pav b" style="margin-bottom:7px;">FP</div><div class="fig-nome">Ing. F. Pellegrini</div><div class="fig-mail">f.pellegrini@scp.it</div></div>
+          <div class="fig-card"><div class="fig-role">Direttore Lavori</div><div class="pav b" style="margin-bottom:7px;">AM</div><div class="fig-nome">Arch. A. Marchetti</div><div class="fig-mail">a.marchetti@scp.it</div></div>
+          <div class="fig-card"><div class="fig-role">Coordinatore Sicurezza</div><div class="pav g" style="margin-bottom:7px;">LR</div><div class="fig-nome">Ing. L. Rossetti</div><div class="fig-mail">l.rossetti@scp.it</div></div>
         </div>
         <div style="font-size:8.5px;font-weight:600;letter-spacing:.14em;color:var(--st);text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--b1);margin-bottom:8px;">Assistente di cantiere</div>
-        <div class="pres-row"><div class="pav s">GT</div><div style="flex:1"><div class="pres-nome">Geom. G. Turrini</div><div class="pres-ruolo">Assistente DL · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f394dd878681819a9d9ab3809083dd9a87">[email&#160;protected]</a> · +39 347 882 1100</div></div><span class="rbadge imp">Assistente</span></div>
+        <div class="pres-row"><div class="pav s">GT</div><div style="flex:1"><div class="pres-nome">Geom. G. Turrini</div><div class="pres-ruolo">Assistente DL · g.turrini@scp.it · +39 347 882 1100</div></div><span class="rbadge imp">Assistente</span></div>
       </div>
     </div>
 
     <!-- ══ VERBALE DL ══ -->
     <div class="page" id="page-verbale">
       <div class="page-hdr"><div><div class="page-title">Verbale DL — N° 12 / 2026</div><div class="page-sub">SCP-VDL-2026-012 · Riqualificazione Ex Capannone · Via Tortona 42</div></div><div style="display:flex"><button class="btn-ghost" onclick="alert('Export PDF avviato...')">Esporta PDF</button><button class="btn-primary">Salva</button></div></div>
-
       <div class="card" style="border-left:3px solid var(--ac);border-radius:0 7px 7px 0;margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">1 — Dati generali</div></div>
         <div class="row3"><div class="field"><span class="field-lbl">Data</span><input class="field-input" value="23/03/2026"></div><div class="field"><span class="field-lbl">Committente</span><input class="field-input" value="Rossi SpA"></div><div class="field"><span class="field-lbl">Referente</span><input class="field-input" value="Marco Rossi"></div></div>
         <div class="row3"><div class="field"><span class="field-lbl">Direttore Lavori</span><input class="field-input" value="Arch. A. Marchetti"></div><div class="field"><span class="field-lbl">Capo Progetto</span><input class="field-input" value="Ing. F. Pellegrini"></div><div class="field"><span class="field-lbl">Assistente</span><input class="field-input" value="Geom. G. Turrini"></div></div>
         <div class="field"><span class="field-lbl">Luogo sopralluogo</span><input class="field-input" value="Piano primo e area impianti"></div>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">2 — Persone presenti</div></div>
         <div class="pres-row"><div class="pav b">AM</div><div style="flex:1"><div class="pres-nome">Arch. A. Marchetti</div><div class="pres-ruolo">Direttore Lavori · SCP s.r.l.</div></div><span class="rbadge dl">DL</span></div>
@@ -462,13 +458,11 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
         <div class="pres-row"><div class="pav s">MV</div><div style="flex:1"><div class="pres-nome">M. Verdi</div><div class="pres-ruolo">Resp. Impianti · Elettrotech Srl</div></div><span class="rbadge imp">Impresa</span></div>
         <button class="add-btn">+ Aggiungi persona</button>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">3 — Stato avanzamento lavori</div></div>
         <div class="sal-bar-wrap"><div class="sal-track"><div class="sal-fill" style="width:72%"></div></div><div class="sal-pct">72%</div></div>
         <div class="sal-chips"><span class="sal-chip ok">Strutture 100%</span><span class="sal-chip att">Impianti 65%</span><span class="sal-chip att">Finiture 40%</span><span class="sal-chip att">Facciata 30%</span><span class="sal-chip">Serramenti —</span></div>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">4 — Argomenti trattati</div></div>
         <div class="arg-item info"><span class="arg-n">1.</span><span class="arg-txt">Verifica esecuzione soletta piano primo: conforme a progetto strutturale</span><span class="arg-badge ab-info">Verificato</span></div>
@@ -477,14 +471,12 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
         <div class="arg-item open"><span class="arg-n">4.</span><span class="arg-txt">Verifica posa serramenti piano secondo: in attesa consegna — sollecitare Serra Srl</span><span class="arg-badge ab-open">Attesa</span></div>
         <button class="add-btn">+ Aggiungi argomento</button>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">5 — Ordini di servizio</div></div>
         <div class="os-item"><span class="os-num">OS 01</span><span class="os-txt">Si ordina alla ditta Elettrotech Srl di presentare entro 48h cronoprogramma aggiornato delle lavorazioni impiantistiche.</span><span class="os-scad">Scad. 25/03</span></div>
         <div class="os-item"><span class="os-num">OS 02</span><span class="os-txt">Si ordina a Costruzioni Bianchi di provvedere alla pulizia e sgombero area cantiere piano terra.</span><span class="os-scad">Scad. 24/03</span></div>
         <button class="add-btn">+ Aggiungi ordine</button>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">6 — Foto di cantiere</div></div>
         <div class="foto-grid">
@@ -494,12 +486,10 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
           <div class="foto-item add"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#8B96A8" stroke-width="1.4" stroke-linecap="round"/></svg></div>
         </div>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">7 — Note e disposizioni</div></div>
         <textarea class="note-area">Richiedere alla ditta Elettrotech cronoprogramma aggiornato entro 48h. Verificare ante-posa la fornitura dei serramenti al piano secondo. Il prossimo sopralluogo è fissato per il 07/04/2026.</textarea>
       </div>
-
       <div class="card" style="margin-bottom:11px;">
         <div class="sec-hdr-box"><div class="sec-hdr-lbl">8 — Firme</div></div>
         <div class="firme-grid">
@@ -597,9 +587,9 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
         <table class="arch-table">
           <thead><tr><th>Scheda</th><th>Categoria</th><th>Descrizione</th><th>Scadenza</th><th>PDF</th></tr></thead>
           <tbody>
-            <tr><td>Elmetto EN397</td><td style="color:var(--ac)">DPI cat. III</td><td>Protezione testa — obbligatorio tutta l'area</td><td>31/12/2026</td><td style="color:var(--ac)">Apri</td></tr>
-            <tr><td>Imbracatura EN361</td><td style="color:var(--rd)">DPI cat. III</td><td>Anticaduta — obbl. lavori in quota >2m</td><td>30/06/2026</td><td style="color:var(--ac)">Apri</td></tr>
-            <tr><td>Scarpe S3</td><td style="color:var(--am)">DPI cat. II</td><td>Puntale acciaio, suola antiperforazione</td><td>31/12/2026</td><td style="color:var(--ac)">Apri</td></tr>
+            <tr><td>Elmetto EN397</td><td style="color:var(--ac)">DPI cat. III</td><td>Protezione testa — obbligatorio tutta l'area</td><td>31/12/2026</td><td style="color:var(--ac);cursor:pointer">Apri</td></tr>
+            <tr><td>Imbracatura EN361</td><td style="color:var(--rd)">DPI cat. III</td><td>Anticaduta — obbl. lavori in quota &gt;2m</td><td>30/06/2026</td><td style="color:var(--ac);cursor:pointer">Apri</td></tr>
+            <tr><td>Scarpe S3</td><td style="color:var(--am)">DPI cat. II</td><td>Puntale acciaio, suola antiperforazione</td><td>31/12/2026</td><td style="color:var(--ac);cursor:pointer">Apri</td></tr>
           </tbody>
         </table>
       </div>
@@ -647,10 +637,6 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
     <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/></svg>
     <span>Dashboard</span>
   </button>
-  <button class="bn-item" id="bn-progetti" onclick="navMobile('progetti')">
-    <svg viewBox="0 0 16 16" fill="none"><path d="M2 3H14V13H2Z" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M5 3V13M2 6H14M2 9H14" stroke="currentColor" stroke-width="1.1"/></svg>
-    <span>Progetti</span>
-  </button>
   <button class="bn-item" id="bn-verbale" onclick="navMobile('verbale')">
     <svg viewBox="0 0 16 16" fill="none"><path d="M3 2H10L13 5V14H3V2Z" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M10 2V5H13" stroke="currentColor" stroke-width="1.4"/><path d="M5 8H11M5 11H9" stroke="currentColor" stroke-width="1.1"/></svg>
     <span>Verbali DL</span>
@@ -659,21 +645,26 @@ body{background:var(--bg);font-family:var(--fn);color:var(--wh);height:100vh;ove
     <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L12 4V8.5C12 11 8 13 8 13C8 13 4 11 4 8.5V4Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
     <span>Sicurezza</span>
   </button>
+  <button class="bn-item" id="bn-nc" onclick="navMobile('nc')">
+    <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M8 5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11" r=".6" fill="currentColor"/></svg>
+    <span>NC</span>
+  </button>
+  <button class="bn-item" id="bn-archivio" onclick="navMobile('archivio')">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M2 4H14V5H2Z" stroke="currentColor" stroke-width="1.2" fill="none"/><rect x="3" y="5" width="10" height="8" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M6 8H10" stroke="currentColor" stroke-width="1"/></svg>
+    <span>Archivio</span>
+  </button>
 </nav>
 
 <script>
-// ── NAVIGAZIONE ──────────────────────────────────────────────
+// ── NAVIGAZIONE ──
 function nav(pageId, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const pg = document.getElementById('page-' + pageId);
   if (pg) pg.classList.add('active');
   if (el) el.classList.add('active');
-  // sync bottom nav
-  ['dashboard','progetti','verbale','sicurezza'].forEach(id => {
-    const b = document.getElementById('bn-'+id);
-    if (b) b.classList.toggle('active', id === pageId);
-  });
+  syncBottomNav(pageId);
+  if (pageId === 'gantt') setTimeout(buildGantt, 50);
 }
 
 function navMobile(pageId) {
@@ -681,64 +672,84 @@ function navMobile(pageId) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const pg = document.getElementById('page-' + pageId);
   if (pg) pg.classList.add('active');
-  ['dashboard','progetti','verbale','sicurezza'].forEach(id => {
-    const b = document.getElementById('bn-'+id);
+  syncBottomNav(pageId);
+  document.querySelector('.main').scrollTop = 0;
+  if (pageId === 'gantt') setTimeout(buildGantt, 50);
+}
+
+function syncBottomNav(pageId) {
+  ['dashboard','verbale','sicurezza','nc','archivio'].forEach(id => {
+    const b = document.getElementById('bn-' + id);
     if (b) b.classList.toggle('active', id === pageId);
   });
-  // scroll to top
-  document.querySelector('.main').scrollTop = 0;
 }
 
-// ── ARCHIVIO TABS ─────────────────────────────────────────────
+// ── ARCHIVIO TABS ──
 function showTab(tab) {
   ['ditte','pers','dpi'].forEach(t => {
-    document.getElementById('arch-'+t).style.display = t === tab ? '' : 'none';
+    document.getElementById('arch-' + t).style.display = t === tab ? '' : 'none';
   });
-  document.querySelectorAll('#page-archivio button').forEach((b,i) => {
-    b.className = i === ['ditte','pers','dpi'].indexOf(tab) ? 'btn-primary' : 'btn-ghost';
+  const tabs = ['ditte','pers','dpi'];
+  document.querySelectorAll('#page-archivio > div:nth-child(2) button').forEach((b, i) => {
+    b.className = tabs[i] === tab ? 'btn-primary' : 'btn-ghost';
   });
 }
 
-// ── GANTT ─────────────────────────────────────────────────────
+// ── GANTT ──
 const GANTT_COLORS = {
-  completato: '#3A7D44', in_corso: '#2F6EA5', ritardo: '#C07A1A', attesa: '#888'
+  completato: '#3A7D44', in_corso: '#2F6EA5', ritardo: '#C07A1A', attesa: '#666'
 };
 const tasks = [
-  {name:'Strutture',     ditta:'Costr. Bianchi', pct:100, s:0, d:8, stato:'completato'},
-  {name:'Impianti',      ditta:'Elettrotech',    pct:65,  s:5, d:10,stato:'in_corso'},
-  {name:'Finiture int.', ditta:'Edilfinish',     pct:40,  s:8, d:8, stato:'in_corso'},
-  {name:'Facciata',      ditta:'Facciatec',      pct:30,  s:9, d:6, stato:'ritardo'},
-  {name:'Imp. elettr.',  ditta:'Elettrotech',    pct:60,  s:5, d:9, stato:'in_corso'},
-  {name:'Serramenti',    ditta:'Serra Srl',      pct:0,   s:11,d:4, stato:'attesa'},
+  {name:'Strutture',     ditta:'Costr. Bianchi', pct:100, s:0,  d:8,  stato:'completato'},
+  {name:'Impianti',      ditta:'Elettrotech',    pct:65,  s:5,  d:10, stato:'in_corso'},
+  {name:'Finiture int.', ditta:'Edilfinish',     pct:40,  s:8,  d:8,  stato:'in_corso'},
+  {name:'Facciata',      ditta:'Facciatec',      pct:30,  s:9,  d:6,  stato:'ritardo'},
+  {name:'Imp. elettr.',  ditta:'Elettrotech',    pct:60,  s:5,  d:9,  stato:'in_corso'},
+  {name:'Serramenti',    ditta:'Serra Srl',      pct:0,   s:11, d:4,  stato:'attesa'},
 ];
-const TOTAL=20, TODAY=11;
-const months=['Gen','Feb','Mar','Apr','Mag','Giu','Lug'];
+const TOTAL = 20, TODAY = 11;
+const months = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug'];
 
 function buildGantt() {
   const c = document.getElementById('gantt-container');
-  const BW = c.offsetWidth - 80 - 90 - 50;
+  if (!c) return;
 
   let html = '<div class="gantt-hdr">';
   html += '<div class="gantt-name-col">Lavorazione</div>';
   html += '<div class="gantt-ditta-col">Ditta</div>';
   html += '<div class="gantt-months">';
-  months.forEach(m => html += `<div class="gantt-month">${m}</div>`);
-  html += '</div><div style="width:46px;font-size:9px;color:var(--st);text-transform:uppercase;letter-spacing:.1em;text-align:right;">%</div></div>';
+  months.forEach(m => { html += '<div class="gantt-month">' + m + '</div>'; });
+  html += '</div>';
+  html += '<div style="width:46px;font-size:9px;color:var(--st);text-transform:uppercase;letter-spacing:.1em;text-align:right;">%</div>';
+  html += '</div>';
 
-  tasks.forEach(t => {
-    const col = GANTT_COLORS[t.stato];
-    const left = (t.s / TOTAL * 100).toFixed(1);
-    const width = (t.d / TOTAL * 100).toFixed(1);
-    const filled = (t.pct).toFixed(0);
-    const todayPct = (TODAY / TOTAL * 100).toFixed(1);
-    html += `<div class="gantt-row-g">
-      <div class="gantt-lbl">${t.name}</div>
-      <div class="gantt-ditta">${t.ditta}</div>
-      <div class="gantt-bars" style="position:relative;height:18px;flex:1;">
-        <div style="position:absolute;left:${left}%;width:${width}%;top:4px;height:10px;background:rgba(255,255,255,.08);border-radius:3px;border:1px solid rgba(255,255,255,.12);"></div>
-        <div style="position:absolute;left:${left}%;width:${(t.d*t.pct/100/TOTAL*100).toFixed(1)}%;top:4px;height:10px;background:${col};border-radius:3px;opacity:.9;"></div>
-        <div style="position:absolute;left:${todayPct}%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.35);"></div>
-      </div>
-      <div style="width:46px;text-align:right;font-family:var(--fc);font-size:11px;font-weight:700;color:${col};">${t.pct > 0 ? t.pct+'%' : '—'}</div>
-    </div>`;
-  
+  tasks.forEach(function(t) {
+    var col = GANTT_COLORS[t.stato] || '#666';
+    var left = (t.s / TOTAL * 100).toFixed(1);
+    var width = (t.d / TOTAL * 100).toFixed(1);
+    var filledW = (t.d * t.pct / 100 / TOTAL * 100).toFixed(1);
+    var todayPct = (TODAY / TOTAL * 100).toFixed(1);
+    html += '<div class="gantt-row-g">';
+    html += '<div class="gantt-lbl">' + t.name + '</div>';
+    html += '<div class="gantt-ditta">' + t.ditta + '</div>';
+    html += '<div class="gantt-bars" style="flex:1;position:relative;height:18px;">';
+    html += '<div style="position:absolute;left:' + left + '%;width:' + width + '%;top:4px;height:10px;background:rgba(255,255,255,.08);border-radius:3px;border:1px solid rgba(255,255,255,.12);"></div>';
+    html += '<div style="position:absolute;left:' + left + '%;width:' + filledW + '%;top:4px;height:10px;background:' + col + ';border-radius:3px;opacity:.9;"></div>';
+    html += '<div style="position:absolute;left:' + todayPct + '%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.35);"></div>';
+    html += '</div>';
+    html += '<div style="width:46px;text-align:right;font-family:var(--fc);font-size:11px;font-weight:700;color:' + col + ';">' + (t.pct > 0 ? t.pct + '%' : '—') + '</div>';
+    html += '</div>';
+  });
+
+  c.innerHTML = html;
+}
+
+// Avvia Gantt se la pagina è già attiva
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.getElementById('page-gantt').classList.contains('active')) {
+    buildGantt();
+  }
+});
+</script>
+</body>
+</html>
